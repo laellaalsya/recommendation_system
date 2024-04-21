@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hasil Rekomendasi</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<!-- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/> -->
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='table/vendor/bootstrap/css/bootstrap.min.css') }}">
+	<!--===============================================================================================-->
+</head>
+
+<body style="background: #bea1da;">
+	<div class="container p-5" style="z-index: 10; background: #bea1da;">
+		<h2 class="u-font-playfair-display text-center ">5 Rekomendasi Teratas Vitamin dan Suplemen</h2>
+		<div class="table-responsive mb-4 bg-white" style="max-height: 75vh; overflow-y: auto;">
+			<table class="table table-bordered position-relative border">
+				<thead class="table-dark thead-dark text-white sticky-top">
+					<tr class="row100 head">
+						{% for i, header in headers %}
+						<th class="text-center align-middle" style="background: #9958da;">{{ header }}</th>
+						{% endfor %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for row in rows %}
+					<tr class="row100 body">
+						{% for i, val in row %}
+						<td class="{{'cell100 column' ~ i}}">{{ val }}</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="text-center mx-auto">
+			<a class="btn btn-dark btn-lg mx-auto px-4" style="background: #9958da;" href="/">Kembali</a>
+		</div>
+	</div>
+
+
+	<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='table/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+	<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='table/vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='table/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+	<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='table/js/main.js') }}"></script>
+
+</body>
+
+</html>
